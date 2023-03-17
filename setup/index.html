@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Frontend challenge</title>
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://embedsocial.com/cdn/fonts/roboto/stylesheet.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body onload="dataload()">
+	<div class="container">
+		<div class="sidebar">
+			<div class="accordion">
+				<h4 class="accordion-title">
+					Settings panel
+				</h4>
+			</div>
+			<div class="settings">
+				<label class="label">
+					Number of columns
+				</label>
+				<select id="numberOfColumns" class="form-control" onchange="columns()">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="dynamic" selected>dynamic</option>
+				</select>
+
+				<label class="label">
+					Card background color
+				</label>
+				<input id="cardBackgroundColor" class="form-control" type="text" value="#ffffff" onchange="changeColor()" />
+
+				<label class="label">
+					Cards space between
+				</label>
+				<input id="cardSpaceBetween" class="form-control" type="text" value="10px" onchange="changespace()"/>
+
+				<label class="label">
+					Choose theme
+				</label>
+				<div class="radio-group">
+					<div class="radio-select">
+						<input id="lightTheme" type="radio" name="theme" value="lightTheme" checked onclick="theme(this);">
+						<label for="lightTheme">Light</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="darkTheme" type="radio" name="theme" value="darkTheme" onclick="theme(this);">
+						<label for="darkTheme">Dark</label>
+					</div>
+				</div>
+
+				<label class="label">
+					Filter by source
+				</label>
+				<div class="radio-group">
+					<div class="radio-select">
+						<input id="all" type="radio" name="filterBySource" value="all" checked onclick="filter(this);">
+						<label for="all">All</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="instagram" type="radio" name="filterBySource" value="instagram" onclick="filter(this);">
+						<label for="instagram">Instagram</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="facebook" type="radio" name="filterBySource" value="facebook" onclick="filter(this);">
+						<label for="facebook">Facebook</label>
+					</div>
+
+					<div class="radio-select">
+						<input id="twitter" type="radio" name="filterBySource" value="twitter" onclick="filter(this);">
+						<label for="twitter">Twitter</label>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="preview" >
+			<!-- Start creating layout html here -->
+
+			<div class="layout-placeholder" onload="loadmore()">
+				<div id="card-container">
+				 <div class="card">
+					<div class="card-top">
+					<div class="card-profile-pic"><img class='profile-pic' src="" alt="">
+						<div class="card-title">	</div>
+						<div class="card-date"></div>
+					
+					<div class="logo"> <svg width="30" height="30">
+			
+						<image class="filterimage" xlink:href="http://127.0.0.1:5500/icons/facebook.svg"  alt="facebook" width="30" height="30" />
+					  </svg></div>
+					</div>
+					</div>
+					<div class="card-body">
+						<div class="card-pic"><img class='pic' src="" alt=""></div>
+					<div class="card-text">Card Description</div>
+				</div>
+				<div class="card-bottom">
+					<div class="heart"><svg width="16" height="16">
+						<image xlink:href="http://127.0.0.1:5500/icons/heart.svg" width="16" height="16" onclick="likecounter(this)" />
+					  </svg></div>
+					<div class="likes">0</div>
+					</div>
+				  </div>      
+				  <div class="card">
+					<div class="card-top">
+						<div class="card-profile-pic"><img class='profile-pic' src="" alt="">
+							<div class="card-title">	</div>
+							<div class="card-date"></div>
+						
+						<div class="logo"> <svg width="30" height="30">
+				
+							<image class="filterimage" xlink:href="http://127.0.0.1:5500/icons/instagram-logo.svg" alt="instagram" width="30" height="30" />
+						  </svg></div>
+						</div>
+						</div>
+						<div class="card-body">
+							<div class="card-pic"><img class='pic' src="" alt=""></div>
+						<div class="card-text">Card Description</div>
+					</div>
+					<div class="card-bottom">
+						<div class="heart"><svg width="16" height="16">
+							<image xlink:href="http://127.0.0.1:5500/icons/heart.svg" width="16" height="16" onclick="likecounter(this)" />
+						  </svg></div>
+						<div class="likes">0</div>
+						</div>
+					  </div>         
+				  <div class="card">
+					<div class="card-top">
+						<div class="card-profile-pic"><img class='profile-pic' src="" alt="">
+							<div class="card-title">	</div>
+							<div class="card-date"></div>
+						
+						<div class="logo"> <svg width="30" height="30">
+				
+							<image class="filterimage" xlink:href="http://127.0.0.1:5500/icons/facebook.svg" alt="facebook" width="30" height="30" />
+						  </svg></div>
+						</div>
+						</div>
+						<div class="card-body">
+							<div class="card-pic"><img class='pic' src="" alt=""></div>
+						<div class="card-text">Card Description</div>
+					</div>
+					<div class="card-bottom">
+						<div class="heart"><svg width="16" height="16">
+							<image  xlink:href="http://127.0.0.1:5500/icons/heart.svg" width="16" height="16" onclick="likecounter(this)" />
+						  </svg></div>
+						<div class="likes">0</div>
+						</div>
+					  </div>        
+				  <div class="card">
+					<div class="card-top">
+						<div class="card-profile-pic"><img class='profile-pic' src="" alt="">
+							<div class="card-title">	</div>
+							<div class="card-date"></div>
+						
+						<div class="logo"> <svg width="30" height="30">
+				
+							<image class="filterimage" xlink:href="http://127.0.0.1:5500/icons/facebook.svg" alt="facebook" width="30" height="30" />
+						  </svg></div>
+						</div>
+						</div>
+						<div class="card-body">
+							<div class="card-pic"><img class='pic' src="" alt=""></div>
+						<div class="card-text">Card Description</div>
+					</div>
+					<div class="card-bottom" >
+						<div class="heart"><svg width="16" height="16">
+							<image  xlink:href="http://127.0.0.1:5500/icons/heart.svg" width="16" height="16" onclick="likecounter(this)" />
+						  </svg><p class="likes">0</p></div>
+						</div>
+					  </div>      
+				  </div> 
+				 
+				  </div>
+				  
+			</div>
+		</div>
+		<div class="load-more">
+			<input id="load-more-btn" type="button" name="Load More" value="Load more" onclick="load()">
+		</div> 
+	</div>
+	<script src="index.js"></script>
+
+</body>
+
+</html>
